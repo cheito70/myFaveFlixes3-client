@@ -32257,7 +32257,7 @@ function LoginView(props) {
     const handleSubmit = (e)=>{
         e.preventDefault();
         console.log(username, password);
-    /* Send a request to server for authentication  */ /* Then call props.onLoggedIn(username) */ //props.onLoggedIn(username);
+        /* Send a request to server for authentication  */ /* Then call props.onLoggedIn(username) */ props.onLoggedIn(username);
     };
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("form", {
         children: [
