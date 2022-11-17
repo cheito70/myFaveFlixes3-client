@@ -76,4 +76,4 @@ onLoggedIn(user) {
 
 }
 
-//export default MainView;
+export default MainView;
