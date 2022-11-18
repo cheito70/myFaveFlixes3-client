@@ -32308,6 +32308,14 @@ function LoginView(props) {
                 fileName: "src/components/login-view/login-view.jsx",
                 lineNumber: 26,
                 columnNumber: 13
+            }, this),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
+                type: "button",
+                children: "Register"
+            }, void 0, false, {
+                fileName: "src/components/login-view/login-view.jsx",
+                lineNumber: 27,
+                columnNumber: 13
             }, this)
         ]
     }, void 0, true, {
