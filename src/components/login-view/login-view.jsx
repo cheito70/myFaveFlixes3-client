@@ -1,7 +1,7 @@
 import React, { useState }  from 'react';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
-//import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 
 export function LoginView(props) {
     const [ username, setUsername ] = useState('');
@@ -31,6 +31,6 @@ export function LoginView(props) {
     );
 }
 
-/*LoginView.propTypes = {
+LoginView.propTypes = {
     onLoggedIn: PropTypes.func.isRequired
-}*/
+}
