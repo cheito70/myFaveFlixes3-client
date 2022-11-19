@@ -16,23 +16,19 @@ export function RegistrationView(props) {
     return (
         <form>
             <h1>Welcome to the User Registration</h1>
-            <label>
-                Username:
-                <input type="text" value={username} onChange={ e => setUsername(e.target.value)} />
-            </label>
-            <label>
-                Password:
-                <input type="password" value={password} onChange={ e => setPassword(e.target.value)} />
-            </label>
-            <label>
-                Email:
-                <input type="email" value={email} onChange={ e => setEmail(e.target.value)} />
-            </label>
-            <label>
-                Birthday:
-                <input type="birthday" value={birthday} onChange={ e => setBirthday(e.target.value)} />
-            </label>
-            <button type="submit" onClick={handleSubmit}>Register</button>
+            <label>Username:</label>
+                <input type="text" value={username} onChange={ e => setUsername(e.target.value)} required />
+            
+            <label>Password:</label>
+                <input type="password" value={password} onChange={ e => setPassword(e.target.value)} required minLength="8" />
+            
+            <label>Email:</label>
+                <input type="email" value={email} onChange={ e => setEmail(e.target.value)} required />
+            
+            <label>Birthday:</label>
+                <input type="birthday" value={birthday} onChange={ e => setBirthday(e.target.value)} required />
+            
+            <button variant="primary" type="submit" onClick={handleSubmit}>Register</button>
             <button type="button" onClick={() => {props.onBackClick(null);}}>Return to Login Page</button>
        </form>
     );
