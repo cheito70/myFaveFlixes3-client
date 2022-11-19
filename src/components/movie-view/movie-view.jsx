@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
+import Button from 'react-bootstrap/Button';
 
 export class MovieView extends React.Component {
 
@@ -58,7 +59,7 @@ export class MovieView extends React.Component {
                     </Col>
                 </Row>
                 <Col>
-                <button onClick={() => { onBackClick(null); }}>Back</button>        
+                <Button onClick={() => { onBackClick(null); }}>Back</Button>        
                 </Col>
             </div>
         );
