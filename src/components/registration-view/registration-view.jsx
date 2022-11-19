@@ -15,7 +15,7 @@ export function RegistrationView(props) {
 
     return (
         <form>
-            <h1>New User Registration</h1>
+            <h1>Welcome to the User Registration</h1>
             <label>
                 Username:
                 <input type="text" value={username} onChange={ e => setUsername(e.target.value)} />
