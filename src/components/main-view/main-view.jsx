@@ -72,11 +72,13 @@ onLoggedIn(user) {
                 : (
                     <Row className="justify-content-md-center">
                     {movies.map(movie => (
-                   <MovieCard
+                        <Col md={3}>
+                        <MovieCard
                      key={movie._id}
                      movie={movie}
                      onMovieClick={(newSelectedMovie) => {
                        this.setSelectedMovie(newSelectedMovie); }}/>
+                        </Col>
                      ))}
                     </Row>
                     )
