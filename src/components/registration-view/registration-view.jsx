@@ -1,5 +1,9 @@
 import React, {useState} from 'react';
 import PropTypes from 'prop-types';
+import { Form, Button, Col, Row } from 'react-bootstrap';
+
+import './registration-view.scss';
+import axios from 'axios';
 
 export function RegistrationView(props) {
     const [username, setUsername] = useState('');
@@ -9,15 +13,35 @@ export function RegistrationView(props) {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        console.log(username, password, email, birthday);
-        props.Registration(username);
+        axios.post('https://myfaveflixes.herokuapp.com/movies/users', {
+            Username: username,
+            Password: password,
+            Email: email
+        })
+            .then(response => {
+                const data = response.data;
+                console.log(data);
+                window.open('/', '_self');
+                //The second argument '_self' is necessary so
+                //that the page will open in current tab
+            })
+            .catch(e => {
+                console.log('error registering the user');
+                alert('Something was not entered correctly!');
+            });
     };
 
     return (
-        <form>
-            <h1>Welcome to the User Registration</h1>
-            <label>Username:</label>
-                <input type="text" value={username} onChange={ e => setUsername(e.target.value)} required />
+        <Form>
+            <Form.Group>
+            <h2>Welcome to the User Registration</h2>
+            <Form.Label>Username:</Form.Label>
+                <Form.Control 
+                type="text" 
+                value={username} 
+                onChange={ e => setUsername(e.target.value)} 
+                required />
+            </Form.Group>
             
             <label>Password:</label>
                 <input type="password" value={password} onChange={ e => setPassword(e.target.value)} required minLength="8" />
