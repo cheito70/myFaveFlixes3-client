@@ -40,21 +40,42 @@ export function RegistrationView(props) {
                 type="text" 
                 value={username} 
                 onChange={ e => setUsername(e.target.value)} 
+                required 
+                placeholder="Enter a Username"
+                />
+            </Form.Group>
+            
+            <Form.Group>
+                <Form.Label>Password:</Form.Label>
+                <Form.Control
+                 type="password" 
+                 value={password} 
+                 onChange={ e => setPassword(e.target.value)} 
+                 required 
+                 minLength="8" 
+                 />
+            </Form.Group>
+            
+            <Form.Group>
+            <Form.Label>Email:</Form.Label>
+                <Form.Control 
+                type="email" 
+                value={email} 
+                onChange={ e => setEmail(e.target.value)} 
+                required 
+                />
+            
+            <Form.Label>Birthday:</Form.Label>
+                <Form.Control 
+                type="birthday" 
+                value={birthday} 
+                onChange={ e => setBirthday(e.target.value)} 
                 required />
             </Form.Group>
             
-            <label>Password:</label>
-                <input type="password" value={password} onChange={ e => setPassword(e.target.value)} required minLength="8" />
-            
-            <label>Email:</label>
-                <input type="email" value={email} onChange={ e => setEmail(e.target.value)} required />
-            
-            <label>Birthday:</label>
-                <input type="birthday" value={birthday} onChange={ e => setBirthday(e.target.value)} required />
-            
-            <button variant="primary" type="submit" onClick={handleSubmit}>Register</button>
-            <button type="button" onClick={() => {props.onBackClick(null);}}>Return to Login Page</button>
-       </form>
+            <Button variant="primary" type="submit" onClick={handleSubmit}>Register</Button>
+            <Button type="button" onClick={() => {props.onBackClick(null);}}>Return to Login Page</Button>
+       </Form>
     );
 }
 
