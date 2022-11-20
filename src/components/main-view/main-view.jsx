@@ -5,8 +5,11 @@ import { RegistrationView } from '../registration-view/registration-view';
 import { LoginView } from '../login-view/login-view';
 import { MovieCard } from '../movie-card/movie-card';
 import { MovieView } from '../movie-view/movie-view';
+import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+
+import './main-view.scss';
 
 export class MainView extends React.Component {
 
@@ -49,8 +52,17 @@ onLoggedIn(user) {
 
         /* If there is no user, the LoginView is rendered. If there is a user logged in, 
         the user details are *passed as a prop to the LoginView*/
-        if (!user) return <LoginView onLoggedIn={user => this.onLoggedIn(user)} />;
+        if (!registered) return <RegistrationView />;
 
+        // If there is no user, the LoginView is rendered.
+        //If user us logged in, user details are passed as a prop to lgin view
+        if (!user)
+            return (
+                <LoginView
+                onLoggedIn={(user) => this.onLoggedIn(user)}
+                toRegister={(registered) => this.toRegister(registered)}
+                />
+            );
         //if ( selectedMovie ) return <MovieView movie={selectedMovie} />;
             
         if(movies.length === 0) return <div className="main-view" />;
