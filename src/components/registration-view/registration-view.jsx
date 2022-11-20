@@ -13,7 +13,7 @@ export function RegistrationView(props) {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        axios.post('https://myfaveflixes.herokuapp.com/movies/users', {
+        axios.post('https://myfaveflixes.herokuapp.com/users', {
             Username: username,
             Password: password,
             Email: email
