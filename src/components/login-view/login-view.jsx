@@ -15,6 +15,12 @@ export function LoginView(props) {
         props.onLoggedIn(username);
     };
 
+    const handleRegisterClick = (e) => {
+        e.preventDefault();
+        props.toRegister();
+    };
+
+
     return (
         <Form>
             <Form.Group controlId="formUsername">
@@ -26,7 +32,17 @@ export function LoginView(props) {
                 <Form.Label>Password:</Form.Label>
                 <Form.Control type="password" onChange={e => setPassword(e.target.value)} />
             </Form.Group>
-            <Button variant="primary" type="submit" onClick={handleSubmit}>Submit</Button>
+            <Button 
+            className="login-button mt-2 mr-2"
+            variant="primary" 
+            type="submit" 
+            onClick={handleSubmit}>Submit</Button>
+
+            <Button 
+            className="register-button mt-2" 
+            variant="secondary" 
+            type="submit"
+            onClick={handleRegisterClick}>Register</Button>
         </Form>
     );
 }
