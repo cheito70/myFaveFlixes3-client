@@ -5,6 +5,7 @@ import { RegistrationView } from '../registration-view/registration-view';
 import { LoginView } from '../login-view/login-view';
 import { MovieCard } from '../movie-card/movie-card';
 import { MovieView } from '../movie-view/movie-view';
+
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
@@ -18,7 +19,8 @@ export class MainView extends React.Component {
         this.state = {
             movies: [],
             selectedMovie: null,
-            user: null
+            user: null,
+            registered: true,
         };
     }
 
@@ -46,9 +48,14 @@ onLoggedIn(user) {
         user
     });
 }
+toRegister(registered) {
+    this.setState({
+        registered
+    });
+}
 
     render() {
-        const { movies, selectedMovie, user } = this.state;
+        const { movies, selectedMovie, user, registered } = this.state;
 
         /* If there is no user, the LoginView is rendered. If there is a user logged in, 
         the user details are *passed as a prop to the LoginView*/
@@ -71,7 +78,7 @@ onLoggedIn(user) {
             <Row className="main-view justify-content-md-center">
             {selectedMovie  
                 ? (
-               <Row className="justify-content-md-center">
+               //<Row className="justify-content-md-center">
                   <Col md={8}> 
                     <MovieView
                    movie={selectedMovie}
@@ -79,10 +86,10 @@ onLoggedIn(user) {
                      this.setSelectedMovie(newSelectedMovie);
                    }}/>
                    </Col>
-                </Row>
+               // </Row>
                 )
                 : (
-                    <Row className="justify-content-md-center">
+                    //<Row className="justify-content-md-center">
                     {movies.map(movie => (
                         <Col md={3}>
                         <MovieCard
@@ -92,7 +99,7 @@ onLoggedIn(user) {
                        this.setSelectedMovie(newSelectedMovie); }}/>
                         </Col>
                      ))}
-                    </Row>
+                   // </Row>
                     )
                  }
              </Row>
