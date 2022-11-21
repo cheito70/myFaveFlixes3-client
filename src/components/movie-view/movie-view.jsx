@@ -1,18 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Col from 'react-bootstrap/Col';
-import Row from 'react-bootstrap/Row';
-import Button from 'react-bootstrap/Button';
+import { Col, Row, Button } from 'react-bootstrap';
+
+import './movie-view.scss';
+
 
 export class MovieView extends React.Component {
-
-    keypressCallback(event) {
-        console.log(event.key);
-    }
-
-    componentDidMount () {
-        document.addEventListener('keypress', this.keypressCallback);
-    }
 
     render() {
         const { movie, onBackClick } = this.props;
