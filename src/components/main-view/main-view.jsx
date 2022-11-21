@@ -68,7 +68,7 @@ onLoggedIn(user) {
         if(movies.length === 0) return <div className="main-view" />;
     
         return (
-            <div className="main-view">
+            <Row className="main-view justify-content-md-center">
             {selectedMovie  
                 ? (
                <Row className="justify-content-md-center">
@@ -95,7 +95,7 @@ onLoggedIn(user) {
                     </Row>
                     )
                  }
-             </div>
+             </Row>
         );
     }
 
