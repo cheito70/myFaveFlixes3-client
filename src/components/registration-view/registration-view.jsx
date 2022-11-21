@@ -2,8 +2,8 @@ import React, {useState} from 'react';
 import PropTypes from 'prop-types';
 import { Form, Button, Col, Row } from 'react-bootstrap';
 
-//import './registration-view.scss';
-import axios from 'axios';
+import './registration-view.scss';
+//import axios from 'axios';
 
 export function RegistrationView(props) {
     const [username, setUsername] = useState('');
@@ -16,7 +16,8 @@ export function RegistrationView(props) {
         axios.post('https://myfaveflixes.herokuapp.com/users', {
             Username: username,
             Password: password,
-            Email: email
+            Email: email,
+            Birthday: birthday
         })
             .then(response => {
                 const data = response.data;
