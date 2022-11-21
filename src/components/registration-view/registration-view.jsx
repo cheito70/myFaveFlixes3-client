@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { Form, Button, Col, Row } from 'react-bootstrap';
 
 import './registration-view.scss';
-import axios from 'axios';
+//import axios from 'axios';
 
 export function RegistrationView(props) {
     const [username, setUsername] = useState('');
@@ -13,23 +13,8 @@ export function RegistrationView(props) {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        axios.post('https://myfaveflixes.herokuapp.com/users', {
-            Username: username,
-            Password: password,
-            Email: email,
-            Birthday: birthday
-        })
-            .then(response => {
-                const data = response.data;
-                console.log(data);
-                window.open('/', '_self');
-                //The second argument '_self' is necessary so
-                //that the page will open in current tab
-            })
-            .catch(e => {
-                console.log('error registering the user');
-                alert('Something was not entered correctly!');
-            });
+        console.log(username, password, email, birthday);
+        props.Registration(username);
     };
 
     return (
@@ -40,8 +25,9 @@ export function RegistrationView(props) {
                 <Form.Control 
                 type="text" 
                 value={username} 
-                onChange={ e => setUsername(e.target.value)} 
-                required 
+                onChange={ (e) => setUsername(e.target.value)} 
+                //required
+                minLength="8"
                 placeholder="Enter a Username"
                 />
             </Form.Group>
@@ -51,9 +37,9 @@ export function RegistrationView(props) {
                 <Form.Control
                  type="password" 
                  value={password} 
-                 onChange={ e => setPassword(e.target.value)} 
-                 required 
-                 minLength="8" 
+                 onChange={ (e) => setPassword(e.target.value)} 
+                 //required 
+                 minLength="Must be 8 or more characters" 
                  />
             </Form.Group>
             
@@ -62,7 +48,7 @@ export function RegistrationView(props) {
                 <Form.Control 
                 type="email" 
                 value={email} 
-                onChange={ e => setEmail(e.target.value)} 
+                onChange={ (e) => setEmail(e.target.value)} 
                 required 
                 />
             
@@ -70,12 +56,22 @@ export function RegistrationView(props) {
                 <Form.Control 
                 type="birthday" 
                 value={birthday} 
-                onChange={ e => setBirthday(e.target.value)} 
-                required />
+                onChange={ (e) => setBirthday(e.target.value)} 
+                placeholder="Enter your birthday"
+                 />
             </Form.Group>
             
-            <Button variant="primary" type="submit" onClick={handleSubmit}>Register</Button>
-            <Button type="button" onClick={() => {props.onBackClick(null);}}>Return to Login Page</Button>
+            <Button 
+            className="sign-up-button mt-2 mr-2"
+            variant="primary" 
+            type="submit" 
+            onClick={handleSubmit}>Register</Button>
+
+            <Button 
+            className="back-button mt-2"
+            variant="secondary"
+            type="button" 
+            onClick={() => {props.onBackClick(null);}}>Return to Login Page</Button>
        </Form>
     );
 }
